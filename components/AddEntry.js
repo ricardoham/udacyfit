@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { getMetricMetainfo } from '../utils/helpers';
 import UdaciSlider from './UdacitSlider';
 import UdacitSteppers from './UdacitSteppers';
+import DateHeader from './DateHeader';
 
 export default class AddEntry extends Component {
 
@@ -10,6 +11,7 @@ export default class AddEntry extends Component {
     run: 0,
     bike: 0,
     swim: 0,
+    sleep: 0,
     eat: 0,
   }
 
@@ -48,6 +50,7 @@ export default class AddEntry extends Component {
 
     return (
       <View>
+        <DateHeader date={(new Date()).toLocaleDateString()} />
         {Object.keys(metaInfo).map((key) => {
           const { getIcon, type, ...rest } = metaInfo[key]
           const value =  this.state[key]
@@ -61,7 +64,7 @@ export default class AddEntry extends Component {
                     onChange={(value) => this.slide(key, value)}
                     {...rest}
                   />
-                : <UdacitSteppers 
+                : <UdacitSteppers
                     value={value}
                     onIncrement={() => this.increment(key)}
                     onDecrement={() => this.decrement(key)}
