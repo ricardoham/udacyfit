@@ -21,11 +21,11 @@ class History extends Component {
       })
   }
 
-  renderItem = ({ today, ...metrics }, formatedDate, key) => {
+  renderItem = ({ today, ...metrics }, formattedDate, key) => (
     <View>
       { today ? <Text>{JSON.stringify(today)}</Text> : <Text>{JSON.stringify(metrics)}</Text>}
     </View>
-  }
+  )
 
   renderEmptyDate(formatedDate) {
     return (
@@ -37,6 +37,7 @@ class History extends Component {
 
   render() {
     const { entries } = this.props;
+
     return (
       <UdaciFitnessCalendar
         items={entries}
