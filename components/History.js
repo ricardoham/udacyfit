@@ -13,7 +13,7 @@ class History extends Component {
     fetchCalendarResults()
       .then((entries) => dispatch(receiveEntries(entries)))
       .then(({ entries }) => {
-        if (entries[timeToString]) {
+        if (!entries[timeToString()]) {
           dispatch(addEntry({
             [timeToString()]: getDailyReminderValue()
           }))
