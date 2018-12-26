@@ -74,4 +74,4 @@ function mapDispatchToProps (dispatch, { navigation }) {
   }
 }
 
-export default connect(mapStateToProps)(EntryDetail)
+export default connect(mapStateToProps, mapDispatchToProps)(EntryDetail)
